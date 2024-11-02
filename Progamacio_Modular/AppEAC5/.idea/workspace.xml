@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="23d1d0e5-f670-47ed-83c1-7fada0cfabd5" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AppEAC5.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BowlingData.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Constants.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/UtilsBowling.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/UtilsIO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/BowlingDataTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/UtilsBowlingTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/UtilsIOTest.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "JuanmaMesa"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/JuanmaMesa/DAM.git",
+    "accountId": "161bfbee-37da-4f3c-8e21-fcadb343fb4b"
+  }
+}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
+  <component name="ProjectId" id="2oJ77IbEHz9kKVzZeo6M8xGzdPT" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "dev",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/home/juanma/DAM/proyectos_git/Progamacio_Modular/AppEAC5"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="23d1d0e5-f670-47ed-83c1-7fada0cfabd5" name="Changes" comment="" />
+      <created>1730575655536</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1730575655536</updated>
+    </task>
+    <servers />
+  </component>
+</project>
