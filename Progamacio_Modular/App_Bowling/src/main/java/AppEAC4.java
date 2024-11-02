@@ -66,7 +66,7 @@ public class AppEAC4 {
 
     public void start() {
         numberPlayer = askForInteger(PROMPT_NUM_PLAYER, MESSAGE_ERROR_INTEGER);
-        // si el nombre jugadors és 0 o negatiu sortim del mètode.
+        // if the number of player is less than min allowed, we return
         if (numberPlayer < MIN_PLAYER_ALOWED) {
             showError(MESSAGE_ERROR_JUGADORS);
             return;
