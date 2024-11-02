@@ -5,16 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="23d1d0e5-f670-47ed-83c1-7fada0cfabd5" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AppEAC5.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/BowlingData.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Constants.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UtilsBowling.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UtilsIO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/BowlingDataTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/UtilsBowlingTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/UtilsIOTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EAC5/AppEAC5.zip" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
