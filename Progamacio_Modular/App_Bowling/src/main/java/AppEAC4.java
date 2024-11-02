@@ -36,7 +36,7 @@ public class AppEAC4 {
     private static final String PROMPT_ROUND = "Quina ronda vols puntuar ";
     private static final String PROMPT_EXIT = "saliendo de la app....";
 
-
+    public static final int POINTS_NO_PLAYED = -1;
     private static final int NUM_MAX_ROUND = 10;
     private static final int NUM_ILIGAL_MIN = 0;
     private static final int MIN_PLAYER_ALOWED = 1;
@@ -65,6 +65,7 @@ public class AppEAC4 {
     }
 
     public void start() {
+        // ask for the number of players
         numberPlayer = askForInteger(PROMPT_NUM_PLAYER, MESSAGE_ERROR_INTEGER);
         // if the number of player is less than min allowed, we return
         if (numberPlayer < MIN_PLAYER_ALOWED) {
@@ -72,10 +73,10 @@ public class AppEAC4 {
             return;
         }
 
-        initializePlayers(numberPlayer);
-        initializePoints(numberPlayer);
+        playersData = initializePlayers(numberPlayer);
+        pointsTotal = initializePoints(numberPlayer);
 
-        // introduim la informació dels jugadors a la matriu
+        // we enter the players into the matrix
         for (int i = 0; i < playersData.length; i++) {
             System.out.print(i + 1 + "/" + playersData.length + " - ");
             String name = askForString(PROMPT_PLAYER_NAME, MESSAGE_ERROR_EMPTY);
@@ -91,9 +92,7 @@ public class AppEAC4 {
                 System.out.print(i + 1 + "/" + playersData.length + " - ");
                 age = askForInteger(PROMPT_AGE, MESSAGE_ERROR_INTEGER);
             }
-            playersData[i][COLUMN_NAME] = name;
-            playersData[i][COLUMN_LASTNAME] = lastName;
-            playersData[i][COLUMN_AGE] = String.valueOf(age);
+            insertPlayerNames(playersData, i, name, lastName, age);
 
         }
         // Menu Principal
@@ -104,7 +103,6 @@ public class AppEAC4 {
             subMenu(optionUser);
         } while (optionUser != EXIT);
 
-
     }
 
     // Metodes principals de l'app
@@ -113,28 +111,32 @@ public class AppEAC4 {
         if (playersNumber < MIN_PLAYER_ALOWED) {
             return null;
         }
-        pointsTotal = new int[playersNumber][NUM_MAX_ROUND];
-
-        for (int i = 0; i < pointsTotal.length; i++) {
+        // we create the array with playersnumber
+        int[][] points = new int[playersNumber][NUM_MAX_ROUND];
+        // initialize the array with -1
+        for (int i = 0; i < points.length; i++) {
             for (int j = 0; j < NUM_MAX_ROUND; j++) {
-                pointsTotal[i][j] = -1;
+                points[i][j] = -1;
             }
         }
-        return pointsTotal;
+        return points;
     }
 
     public String[][] initializePlayers(int playersNumber) {
+        // if the number of player is less than min_Player_Allowed, we return
         if (playersNumber < MIN_PLAYER_ALOWED) {
             return null;
         }
-        playersData = new String[playersNumber][PLAYER_DATA_COLUMN];
+        // we create the array
+        String[][] gamePlayersData = new String[playersNumber][PLAYER_DATA_COLUMN];
 
-        for (int i = 0; i < playersData.length; i++) {
+        // initializa the array with empty strings
+        for (int i = 0; i < gamePlayersData.length; i++) {
             for (int j = 0; j < PLAYER_DATA_COLUMN; j++) {
-                playersData[i][j] = "";
+                gamePlayersData[i][j] = "";
             }
         }
-        return playersData;
+        return gamePlayersData;
     }
 
     public void showMenu(String menuText) {
@@ -157,14 +159,14 @@ public class AppEAC4 {
 
     public String askForString(String message, String errorMessage) {
         Scanner input = new Scanner(System.in);
-        String nameUser = "";
+        String inputText = "";
 
         while (true) {
             System.out.println(message);
-            nameUser = input.nextLine();
+            inputText = input.nextLine();
 
-            if (!nameUser.isEmpty()) {
-                return nameUser;
+            if (!inputText.isEmpty()) {
+                return inputText;
 
             } else {
                 showError(errorMessage);
@@ -201,14 +203,14 @@ public class AppEAC4 {
             return;
         }
 
-        //  Si va be, accedim a la matriu
+        //  insert the data in the array
         playersData[rowNumber][COLUMN_NAME] = name;
         playersData[rowNumber][COLUMN_LASTNAME] = lastName;
         playersData[rowNumber][COLUMN_AGE] = String.valueOf(age);
     }
 
     public void setRoundPoints(int[][] pointsMatrix, int rowIndex, int round, int points) {
-
+        // todo comentario en ingles
         if (pointsMatrix == null ||
                 rowIndex < NUM_ILIGAL_MIN || rowIndex >= pointsMatrix.length ||
                 round < NUM_ILIGAL_MIN || round > NUM_MAX_ROUND ||
@@ -216,7 +218,7 @@ public class AppEAC4 {
             return;
         }
 
-        pointsTotal[rowIndex][round] = points;
+        pointsTotal[rowIndex][round-1] = points;
 
     }
 
@@ -247,7 +249,7 @@ public class AppEAC4 {
                 for (int i = 0; i < numberPlayer; i++) {
                     int point = getValidPlayerScore(i);
 
-                    setRoundPoints(pointsTotal, i, (round - 1), point);// guardem si només la puntuació està entre 0 - 10
+                    setRoundPoints(pointsTotal, i, round, point);// guardem si només la puntuació està entre 0 - 10
                 }
             }
             case MOSTRAR_TAULER -> showRounds(playersData, pointsTotal);
@@ -300,16 +302,17 @@ public class AppEAC4 {
             System.out.printf("%-20s %-15s", playersData[i][COLUMN_NAME] + " " + playersData[i][COLUMN_LASTNAME], playersData[i][COLUMN_AGE]);
 
             for (int j = 0; j < pointsMatrix[i].length; j++) {
-                if (pointsMatrix[i][j] == -1) {
-                    System.out.printf(" %-4s", " -");
-                } else {
-                    System.out.printf(" %-4d", pointsMatrix[i][j]);
-                }
+                System.out.printf(" %-4s", pointsOrDash(pointsMatrix[i][j]));
             }
             System.out.println();  // Nova línia després de cada jugador
         }
     }
+    private String pointsOrDash(int points) {
+
+        return points == POINTS_NO_PLAYED ? "-" : String.valueOf(points);
+    }
 }
+
 
 
 
