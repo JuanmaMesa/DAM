@@ -7,8 +7,6 @@
 package universitat;
 
 
-import java.util.Scanner;
-
 /**
  *
  * @author fgarin
@@ -26,105 +24,55 @@ public class Campus {
     private Laboratori[] laboratoris = new Laboratori[100];
     private int pLaboratoris = 0; //Primera posició buida de l'array de laboratoris
 
+    /**
+     * TODO CONSTRUCTOR
+     *
+     * Nom del mètode: Campus
+     *
+     * Paràmetres: valors per tots els atributs de la classe, menys els arrays
+     *
+     * Accions:
+     * - Assignar als atributs els valors passats com a paràmetres.
+     */
+    
 
-    public Campus(String nomCampus, String ubicacio) {
-        this.nomCampus = nomCampus;
-        this.ubicacio = ubicacio;
-    }
+    /**
+     * TODO Heu d'implementar tots els mètodes accessors possibles.
+     */
 
+    
 
-    public String getNomCampus() {
-        return nomCampus;
-    }
+    /**
+     * TODO
+     *
+     * Nom del mètode: addCampus
+     *
+     * Paràmetres: cap
+     *
+     * Accions:
+     * - Demanar a l'usuari les dades per consola per crear un nou campus
+     *   Les dades a demanar són les que necessita el constructor.
+     *
+     * Retorn: Objecte Campus creat.
+     */
+    
 
-    public void setNomCampus(String nomCampus) {
-        this.nomCampus = nomCampus;
-    }
-
-    public String getUbicacio() {
-        return ubicacio;
-    }
-
-    public void setUbicacio(String ubicacio) {
-        this.ubicacio = ubicacio;
-    }
-
-    public AulaEstandard[] getAulesEstandard() {
-        return aulesEstandard;
-    }
-
-    public void setAulesEstandard(AulaEstandard[] aulesEstandard) {
-        this.aulesEstandard = aulesEstandard;
-    }
-
-    public int getpAulesEstandard() {
-        return pAulesEstandard;
-    }
-
-    public void setpAulesEstandard(int pAulesEstandard) {
-        this.pAulesEstandard = pAulesEstandard;
-    }
-
-    public AulaInformatica[] getAulesInformatica() {
-        return aulesInformatica;
-    }
-
-    public void setAulesInformatica(AulaInformatica[] aulesInformatica) {
-        this.aulesInformatica = aulesInformatica;
-    }
-
-    public int getpAulansInformatica() {
-        return pAulansInformatica;
-    }
-
-    public void setpAulansInformatica(int pAulansInformatica) {
-        this.pAulansInformatica = pAulansInformatica;
-    }
-
-    public Laboratori[] getLaboratoris() {
-        return laboratoris;
-    }
-
-    public void setLaboratoris(Laboratori[] laboratoris) {
-        this.laboratoris = laboratoris;
-    }
-
-    public int getpLaboratoris() {
-        return pLaboratoris;
-    }
-
-    public void setpLaboratoris(int pLaboratoris) {
-        this.pLaboratoris = pLaboratoris;
-    }
-
-    public Campus addCampus(){
-        System.out.println("Introdueix el nom del campus:");
-        String nom_campus = DADES.nextLine();
-
-        System.out.println("Introdueix la ubicació del campus:");
-        String ubicacio = DADES.nextLine();
-
-        return new Campus(nom_campus,ubicacio);
-    }
-
-
-    public void updateCampus(){
-
-        System.out.println("Dades actual del campus:");
-        System.out.println("Nom del campus: " + getNomCampus());
-        System.out.println("Ubicació: " + getUbicacio());
-
-        // noves dades
-        System.out.println("\nIntrodueix les noves dades del campus:");
-
-        System.out.println("Nou nom: ");
-        setNomCampus(DADES.nextLine());
-
-        System.out.println("Nova ubicació: ");
-        setUbicacio(DADES.nextLine());
-
-        System.out.println("\nDades actualizades correctament");
-    }
+    /*
+     * TODO
+     *
+     * Nom del mètode: updateCampus
+     *
+     * Paràmetres: cap
+     *
+     * Accions:
+     * - Demanar a l'usuari que introdueixi les noves dades del campus i
+     *   modificar els atributs corresponents d'aquest. Els únics
+     *   atributs que modificarem són els que hem inicialitzat en el constructor
+     *   amb els paràmetres passats.
+     * - Li heu de mostrar a l'usuari els valors dels atributs abans de modificar-los.
+     *
+     * Retorn: cap
+     */
     
 
     /*
@@ -140,24 +88,6 @@ public class Campus {
      *
      * Retorn: cost de manteniment total del campus.
      */
-
-    public double costManteniment(){
-        double costTotal = 0;
-
-        // calcular cost laboratoris
-        for(int i = 0; i < getpLaboratoris(); i++){
-            costTotal+=laboratoris[i].costManteniment();
-        }
-        // calcular cost Aules Informàtica
-        for(int i = 0; i < getpAulansInformatica(); i++){
-            costTotal+= aulesInformatica[i].costManteniment();
-        }
-        // calcular cost aules estandard
-        for(int i = 0; i < getpAulesEstandard(); i++){
-            costTotal+= aulesEstandard[i].costManteniment();
-        }
-        return costTotal;
-    }
    
 
     /*

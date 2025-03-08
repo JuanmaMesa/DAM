@@ -5,8 +5,6 @@
 package universitat;
 
 
-import java.util.Scanner;
-
 /**
  *
  * @author fgarin
@@ -16,7 +14,7 @@ public class AulaInformatica {
 
     private String codi;
     private int numeroAula;
-    private double costPerDia;
+    private double cosPerDia;
     private double areaEnMetresQuadrats;
 
     /*
@@ -29,49 +27,13 @@ public class AulaInformatica {
      * Accions:
      * - Assignar als atributs corresponents els valors passats com a paràmetres.
      */
-
-    public AulaInformatica(String codi, int numeroAula, double cosPerDia, double areaEnMetresQuadrats) {
-        this.codi = codi;
-        this.numeroAula = numeroAula;
-        this.costPerDia = cosPerDia;
-        this.areaEnMetresQuadrats = areaEnMetresQuadrats;
-    }
+    
 
     /*
      * TODO Heu d'implementar tots els mètodes accessors possibles.  
      */
 
-    public String getCodi() {
-        return codi;
-    }
-
-    public void setCodi(String codi) {
-        this.codi = codi;
-    }
-
-    public int getNumeroAula() {
-        return numeroAula;
-    }
-
-    public void setNumeroAula(int numeroAula) {
-        this.numeroAula = numeroAula;
-    }
-
-    public double getCostPerDia() {
-        return costPerDia;
-    }
-
-    public void setCostPerDia(double costPerDia) {
-        this.costPerDia = costPerDia;
-    }
-
-    public double getAreaEnMetresQuadrats() {
-        return areaEnMetresQuadrats;
-    }
-
-    public void setAreaEnMetresQuadrats(double areaEnMetresQuadrats) {
-        this.areaEnMetresQuadrats = areaEnMetresQuadrats;
-    }
+    
 
     /*
      * TODO
@@ -86,27 +48,6 @@ public class AulaInformatica {
      *
      * Retorn: Objecte AulaInformatica creat.
      */
-
-
-    public AulaInformatica addAulaInformatica(){
-
-        System.out.println("Introdueix el codi de l'aula d'informàtica:");
-        String codi = DADES.nextLine();
-
-        System.out.println("Introdueix el número de l'aula:");
-        int numeroAula = DADES.nextInt();
-
-        System.out.println("Introdueix el cost per dia:");
-        double costPerDia = DADES.nextDouble();
-
-        System.out.println("Introdueix el area en m2: ");
-        double area = DADES.nextDouble();
-
-
-        DADES.nextLine(); // limpieza buffer
-
-        return new AulaInformatica(codi, numeroAula,costPerDia, area);
-    }
     
 
     /*
@@ -123,36 +64,6 @@ public class AulaInformatica {
      *
      * Retorn: cap
      */
-
-
-    public void updateAulaInformatica(){
-        System.out.println("Dades actual de l'aula d'informàtica:");
-        System.out.println("Codi: "+ getCodi());
-        System.out.println("Numero de l'aula d'informàtica: " + getNumeroAula());
-        System.out.println(("Cost per dia: " + getCostPerDia()));
-
-        // noves dades
-        System.out.println("\nIntrodueix les noves dades de l'aula d'informàtica:");
-
-        System.out.println("Nou codi: ");
-        setCodi(DADES.nextLine());
-
-        System.out.println("Nou numero de l'aula: ");
-        setNumeroAula(DADES.nextInt());
-
-        System.out.println("Nou cost per dia: ");
-        setCostPerDia(DADES.nextDouble());
-
-        System.out.println("Nou Area en m2: ");
-        setAreaEnMetresQuadrats(DADES.nextDouble());
-
-        DADES.nextLine(); // Limpiar buffer
-
-        System.out.println("\nDades actualizades correctament");
-
-    }
-
-
     
 
     /*
@@ -165,18 +76,7 @@ public class AulaInformatica {
      *
      * Retorn: cap
      */
-    public void showAulaInformatica(){
-        System.out.println("\n===== Informació de l'aula d'informàtica =====");
-        System.out.println("Codi: "+ getCodi()+"\n"+
-                "Num. aula: "+ getNumeroAula()+"\n"+
-                "Cost per dia: " + getCostPerDia() +" $\n"+
-                "Area en m2: " + getAreaEnMetresQuadrats() + " m2"
-        );
-
-        System.out.println("====================================");
-    }
-
-
+    
 
     /*
      * TODO
@@ -191,10 +91,6 @@ public class AulaInformatica {
      *
      * Retorn: cost de manteniment de l'aula (double).
      */
-
-    public double costManteniment(){
-        return (0.3 * getCostPerDia()) + (0.05 * getAreaEnMetresQuadrats());
-    }
     
 
 

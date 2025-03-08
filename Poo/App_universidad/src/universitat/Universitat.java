@@ -6,15 +6,11 @@
 package universitat;
 
 
-import java.util.Scanner;
-
 /**
  *
  * @author fgarin
  */
 public class Universitat {
-    private final static Scanner DADES = new Scanner(System.in);
-
 
     private String nomUniversitat;
     private String ubicacioSeu;
@@ -31,48 +27,17 @@ public class Universitat {
      * Accions:
      * - Assignar als atributs corresponents els valors passats com a paràmetres.
      */
-
-    public Universitat(String nomUniversitat, String ubicacioSeu) {
-        this.nomUniversitat = nomUniversitat;
-        this.ubicacioSeu = ubicacioSeu;
-    }
+    
+    
+    
 
     /**
      * TODO Heu d'implementar tots els mètodes accessors possibles.
      */
-    public String getNomUniversitat() {
-        return nomUniversitat;
-    }
+    
+   
 
-    public void setNomUniversitat(String nomUniversitat) {
-        this.nomUniversitat = nomUniversitat;
-    }
-
-    public String getUbicacioSeu() {
-        return ubicacioSeu;
-    }
-
-    public void setUbicacioSeu(String ubicacioSeu) {
-        this.ubicacioSeu = ubicacioSeu;
-    }
-
-    public Campus[] getCampus() {
-        return campus;
-    }
-
-    public void setCampus(Campus[] campus) {
-        this.campus = campus;
-    }
-
-    public int getpCampus() {
-        return pCampus;
-    }
-
-    public void setpCampus(int pCampus) {
-        this.pCampus = pCampus;
-    }
-
-/**
+    /**
      * TODO
      *
      * Nom del mètode: addUniversitat
@@ -85,18 +50,7 @@ public class Universitat {
      * 
      * Retorn: Objecte Universitat creat.
      */
-
-public static Universitat addUniversitat() {
-
-    System.out.println("Introdueix el nom de la universitat:");
-    String nomUniversitat = DADES.nextLine();
-
-    System.out.println("Introdueix la ubicació de la seu:");
-    String ubicacioSeu = DADES.nextLine();
-
-    return new Universitat(nomUniversitat, ubicacioSeu);
-}
-
+    
 
     /**
      * TODO
@@ -114,24 +68,7 @@ public static Universitat addUniversitat() {
      * 
      * Retorn: cap
      */
-
-    public void updateUniversitat(){
-        System.out.println("Dades actuals de la universitat:");
-        System.out.println("Nom Universitat: " + getNomUniversitat());
-        System.out.println("Ubicació de la seu: " + getUbicacioSeu());
-
-        System.out.println("\nINtrodueix noves dades de la universitat ");
-
-        System.out.println("Nou nom de la universitat: ");
-        setNomUniversitat(DADES.nextLine());
-
-        System.out.println("Nova ubicació: ");
-        setUbicacioSeu(DADES.nextLine());
-
-        System.out.println("\nDades actualizades correctament");
-
-
-    }
+    
     
 
     /**
@@ -147,10 +84,6 @@ public static Universitat addUniversitat() {
      * 
      * Retorn: Cost de manteniment total de la universitat (double).
      */
-
-    public double costManteniment(){
-        return 1;
-    }
     
 
     /**
@@ -165,29 +98,7 @@ public static Universitat addUniversitat() {
      * 
      * Retorn: cap
      */
-
-    public void showUniversitat(){
-
-        System.out.println("\n===== Informació de la Universitat =====");
-        System.out.println("Nom: " + getNomUniversitat());
-        System.out.println("Ubicació: " + getUbicacioSeu());
-
-
-            double costTotalManteniment = calcularCostManteniment();
-            System.out.println("Cost total de manteniment: " + costTotalManteniment + " €");
-            System.out.println("====================================");
-        }
-
-// Mètode auxiliar per calcular el cost total de manteniment de la universitat
-        private double calcularCostManteniment() {
-            double costTotal = 0;
-            for (int i = 0; i < pCampus; i++) {
-                costTotal += campus[i].costManteniment();
-            }
-            return costTotal;
-        }
-
-    }
+ 
 
 
     /**

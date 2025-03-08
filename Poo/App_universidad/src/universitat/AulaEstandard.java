@@ -5,8 +5,6 @@
 package universitat;
 
 
-import java.util.Scanner;
-
 /**
  *
  * @author fgarin
@@ -18,35 +16,17 @@ public class AulaEstandard {
     private int numeroAula;
     private double costPerDia;
 
-    public AulaEstandard(String codi, int numeroAula, double costPerDia) {
-        this.codi = codi;
-        this.numeroAula = numeroAula;
-        this.costPerDia = costPerDia;
-    }
-
-    public String getCodi() {
-        return codi;
-    }
-
-    public void setCodi(String codi) {
-        this.codi = codi;
-    }
-
-    public int getNumeroAula() {
-        return numeroAula;
-    }
-
-    public void setNumeroAula(int numeroAula) {
-        this.numeroAula = numeroAula;
-    }
-
-    public double getCostPerDia() {
-        return costPerDia;
-    }
-
-    public void setCostPerDia(double costPerDia) {
-        this.costPerDia = costPerDia;
-    }
+    /*
+     * TODO CONSTRUCTOR
+     *
+     * Nom del mètode: AulaEstandard
+     * 
+     * Paràmetres: valors per tots els atributs de la classe.
+     *
+     * Accions:
+     * - Assignar als atributs corresponents els valors passats com a paràmetres.
+     */
+    
 
     /*
      * TODO Heu d'implementar tots els mètodes accessors possibles.  
@@ -66,20 +46,6 @@ public class AulaEstandard {
     *
     * Retorn: Objecte AulaEstandard creat.
     */
-
-    public AulaEstandard addAulaEstandard(){
-        System.out.println("Introdueix el codi de l'aula:");
-        String codi = DADES.nextLine();
-
-        System.out.println("Introdueix el número de l'aula:");
-        int numeroAula = DADES.nextInt();
-
-        System.out.println("Introdueix el cost per dia:");
-        double costPerDia = DADES.nextDouble();
-        // limpieza de buffer?? DADES.nextLine();
-
-        return new AulaEstandard(codi, numeroAula,costPerDia);
-    }
    
 
     /*
@@ -96,28 +62,6 @@ public class AulaEstandard {
      * 
      * Retorn: cap
      */
-
-    public void updateAulaEstandard(){
-        System.out.println("Dades actual de l'aula:");
-        System.out.println("Codi: "+ getCodi());
-        System.out.println("Numero de l'aula: " + getNumeroAula());
-        System.out.println(("Cost per dia: " + getCostPerDia()));
-
-        // noves dades
-        System.out.println("\nIntrodueix les noves dades de l'aula:");
-
-        System.out.println("Nou codi: ");
-        setCodi(DADES.nextLine());
-
-        System.out.println("Nou numero de l'aula: ");
-        setNumeroAula(DADES.nextInt());
-
-        System.out.println("Nou cost per dia: ");
-        setCostPerDia(DADES.nextDouble());
-
-        System.out.println("\nDades actualizades correctament");
-
-    }
     
     
     /*
@@ -132,17 +76,6 @@ public class AulaEstandard {
      * 
      * Retorn: cap
      */
-
-    public void showAulaEstandard(){
-        System.out.println("\n===== Informació de l'aula =====");
-        System.out.println("Codi: "+ getCodi()+"\n"+
-                           "Num. aula: "+ getNumeroAula()+"\n"+
-                           "Cost per dia: " + getCostPerDia() +" $");
-
-        System.out.println("====================================");
-    }
-
-
    
 
     /*
@@ -159,11 +92,6 @@ public class AulaEstandard {
      * 
      * Retorn: cost de manteniment de l'aula (double).
      */
-
-    public double costManteniment(){
-        return getCostPerDia() * 0.2;
-
-    }
-
+    
 
 }
