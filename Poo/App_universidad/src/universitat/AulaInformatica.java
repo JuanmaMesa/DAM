@@ -77,7 +77,6 @@ public class AulaInformatica {
         return new AulaInformatica(codi, numeroAula, costPerDia, area);
     }
 
-
     public void updateAulaInformatica() {
         System.out.println("Dades actual de l'aula d'informàtica:");
         System.out.println("Codi: " + getCodi());
@@ -104,7 +103,6 @@ public class AulaInformatica {
         System.out.println("\nDades actualizades correctament");
     }
 
-
     public void showAulaInformatica() {
         System.out.println("\n===== Informació de l'aula d'informàtica =====");
         System.out.println("Codi: " + getCodi() + "\n" +
@@ -115,7 +113,6 @@ public class AulaInformatica {
 
         System.out.println("====================================");
     }
-
 
     public double costManteniment() {
         return (0.3 * getCostPerDia()) + (0.05 * getAreaEnMetresQuadrats());
