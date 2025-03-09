@@ -108,7 +108,7 @@ public class Laboratori {
         System.out.println("\n===== Informació del laboratori =====");
         System.out.println("Codi: " + getCodi() + "\n" +
                 "Num. laboratori: " + getNumeroLaboratori() + "\n" +
-                "Cost per dia: " + getCostPerDia() + " $\n" +
+                "Cost per dia: " + getCostPerDia() + " €\n" +
                 "Capacitat: " + getCapacitat()
         );
 

@@ -58,7 +58,7 @@ public class Universitat {
     }
 
 
-    public Universitat addUniversitat() {
+    public static Universitat addUniversitat() {
         System.out.println("Introdueix el nom de la Universitat:");
         String nomUniversitat = DADES.nextLine();
 
@@ -92,7 +92,7 @@ public class Universitat {
         for (int i = 0; i < getpCampus(); i++) {
             costTotal += getCampus()[i].costManteniment();
         }
-        return costTotal;
+        return Math.round(costTotal * 100.0)/100.0;
     }
 
     public void showUniversitat() {
@@ -107,63 +107,30 @@ public class Universitat {
         System.out.println("====================================");
     }
 
-
-    /**
-     * Campus
-     * <p>
-     * TODO
-     * <p>
-     * Nom del mètode: addCampus
-     * <p>
-     * Paràmetres: cap
-     * <p>
-     * Accions:
-     * - Afegeix un nou campus a l'array de campus de la universitat
-     * si aquest no existeix.
-     * Per afegir-lo heu de fer servir el mètode de la classe Campus escaient
-     * i per comprovar la seva existència el mètode d'aquesta classe que ens
-     * ajuda en aquesta tasca.
-     * - Actualitza la posició de l'array de campus si s'afegeix el campus.
-     * - Mostra el missatge "El campus ja existeix" si no s'ha afegit.
-     * <p>
-     * Retorn: cap
-     */
     public void addCampus() {
-        Campus nouCampus = new Campus("", "");
+        Campus nouCampus = Campus.addCampus();
         boolean campusExisteix = false;
         boolean espai = true;
 
-        for(int i = 0; i < getpCampus(); i++){
+        for (int i = 0; i < getpCampus(); i++) {
 
-            if(getCampus()[i].getNomCampus().equalsIgnoreCase(nouCampus.getNomCampus())) {
+            if (getCampus()[i].getNomCampus().equalsIgnoreCase(nouCampus.getNomCampus())) {
                 System.out.println("El campus ja existeix");
                 campusExisteix = true;
             }
         }
-        if(getpCampus() > 4){
+        if (getpCampus() >= 5) {
             espai = false;
             System.out.println("No hi ha més espai per afegir campus");
         }
 
-        if(!campusExisteix && espai){
+        if (!campusExisteix && espai) {
             getCampus()[getpCampus()] = nouCampus;
-            setpCampus(getpCampus()+1);
+            setpCampus(getpCampus() + 1);
             System.out.println("Campus afegit correctament");
         }
     }
 
-
-    /**
-     * Nom del mètode: selectCampus
-     * <p>
-     * Paràmetres: cap
-     * <p>
-     * Accions:
-     * - Seleciona un campus de l'array de campus de la universitat
-     * a partir del seu nom.
-     * <p>
-     * Retorn: La posició del campus seleccionat o -1 si no existeix.
-     */
     public int selectCampus(String nom) {
         if (nom == null) {
             System.out.println("\nNom del campus:");
@@ -173,14 +140,13 @@ public class Universitat {
         for (int i = 0; i < pCampus; i++) {
             if (campus[i].getNomCampus().equals(nom)) {
                 return i;
+
             }
         }
-
         return -1;
     }
 
     public void addAulaEstandardCampus() {
-
         int index = selectCampus(null);
 
         if (index != -1) {

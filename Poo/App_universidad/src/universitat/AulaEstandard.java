@@ -90,7 +90,7 @@ public class AulaEstandard {
         System.out.println("\n===== Informació de l'aula =====");
         System.out.println("Codi: " + getCodi() + "\n" +
                 "Num. aula: " + getNumeroAula() + "\n" +
-                "Cost per dia: " + getCostPerDia() + " $");
+                "Cost per dia: " + getCostPerDia() + " €");
 
         System.out.println("====================================");
     }

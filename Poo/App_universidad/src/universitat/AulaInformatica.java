@@ -107,7 +107,7 @@ public class AulaInformatica {
         System.out.println("\n===== Informació de l'aula d'informàtica =====");
         System.out.println("Codi: " + getCodi() + "\n" +
                 "Num. aula: " + getNumeroAula() + "\n" +
-                "Cost per dia: " + getCostPerDia() + " $\n" +
+                "Cost per dia: " + getCostPerDia() + " €\n" +
                 "Area en m2: " + getAreaEnMetresQuadrats() + " m2"
         );
 

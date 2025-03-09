@@ -95,7 +95,7 @@ public class Campus {
         this.pLaboratoris = pLaboratoris;
     }
 
-    public Campus addCampus() {
+    public static Campus addCampus() {
         System.out.println("Introdueix el nom del campus:");
         String nom_campus = DADES.nextLine();
 
@@ -106,7 +106,6 @@ public class Campus {
     }
 
     public void updateCampus() {
-
         System.out.println("Dades actual del campus:");
         System.out.println("Nom del campus: " + getNomCampus());
         System.out.println("Ubicació: " + getUbicacio());
@@ -128,20 +127,26 @@ public class Campus {
 
         // calcular cost laboratoris
         for (int i = 0; i < getpLaboratoris(); i++) {
-            costTotal += getLaboratoris()[i].costManteniment();
+            if (getLaboratoris()[i] != null) {
+                costTotal += getLaboratoris()[i].costManteniment();
+            }
         }
         // calcular cost Aules Informàtica
         for (int i = 0; i < getpAulansInformatica(); i++) {
-            costTotal += getAulesInformatica()[i].costManteniment();
+            if (getAulesInformatica()[i] != null) {
+                costTotal += getAulesInformatica()[i].costManteniment();
+            }
         }
         // calcular cost aules estandard
         for (int i = 0; i < getpAulesEstandard(); i++) {
-            costTotal += getAulesInformatica()[i].costManteniment();
+            if (getAulesEstandard()[i] != null) {
+                costTotal += getAulesEstandard()[i].costManteniment();
+            }
         }
-        return costTotal;
+        return Math.round(costTotal * 100.0) / 100.0;
     }
 
-    public void showcampus() {
+    public void showCampus() {
         System.out.println("\n===== Informació del campus =====");
         System.out.println("Nom: " + getNomCampus() + "\n" +
                 "Ubicació: " + getUbicacio() + "\n");
@@ -152,7 +157,7 @@ public class Campus {
     public void addAulaEstandard() {
         AulaEstandard novaAula = new AulaEstandard("", 0, 0).addAulaEstandard();
         boolean aulaExisteix = false;
-        boolean espacio = true;
+        boolean espai = true;
         for (int i = 0; i < getpAulesEstandard(); i++) {
             if (getAulesEstandard()[i].getCodi().equalsIgnoreCase(novaAula.getCodi())) {
                 System.out.println("L'aula estàndard ja existeix");
@@ -161,31 +166,17 @@ public class Campus {
         }
 
         if (getpAulesEstandard() > 99) {
-            espacio = false;
+            espai = false;
             System.out.println("No hi ha espai per afegir més aules");
         }
 
-        if (!aulaExisteix && espacio) {
+        if (!aulaExisteix && espai) {
             getAulesEstandard()[getpAulesEstandard()] = novaAula;
             setpAulesEstandard(getpAulesEstandard() + 1);
             System.out.println("Aula afegida correctament");
         }
-
     }
 
-
-    /**
-     * Nom del mètode: selectAulaEstandard
-     * <p>
-     * Paràmetres: codi de l'aula estàndard
-     * <p>
-     * Accions:
-     * - Mètode que selecciona una aula estàndard de l'array de aulesEstandard del campus actual
-     * a partir del seu codi.
-     * <p>
-     * Retorn: posició de l'aula estàndard seleccionada a l'array de aulesEstandard del campus actual.
-     * Si l'aula estàndard no existeix retorna -1.
-     */
     public int selectAulaEstandard(String codi) {
         if (codi == null) {
             System.out.println("\nCodi de l'aula estàndard:");
@@ -225,19 +216,6 @@ public class Campus {
         }
     }
 
-
-    /**
-     * Nom del mètode: selectAulaInformatica
-     * <p>
-     * Paràmetres: codi de l'aulaInformatica
-     * <p>
-     * Accions:
-     * - Mètode que selecciona una aulaInformatica de l'array de aulesInformatica del campus actual
-     * a partir del seu codi.
-     * <p>
-     * Retorn: posició de la aulaInformatica seleccionada a l'array de aulesInformatica del campus actual.
-     * Si l'aula d'informàtica no existeix retorna -1.
-     */
     public int selectAulaInformatica(String codi) {
         if (codi == null) {
             System.out.println("\nCodi de l'aula d'informàtica:");
@@ -275,19 +253,6 @@ public class Campus {
             System.out.println("Laboratori afegit correctament");
         }
     }
-
-    /**
-     * Nom del mètode: selectLaboratori
-     * <p>
-     * Paràmetres: codi del laboratori
-     * <p>
-     * Accions:
-     * - Mètode que selecciona un laboratori de l'array de laboratoris del campus actual
-     * a partir del seu codi.
-     * <p>
-     * Retorn: posició de la laboratori seleccionada a l'array d'laboratoris del campus actual.
-     * Si el laboratori no existeix retorna -1.
-     */
 
     public int selectLaboratori(String codi) {
         if (codi == null) {
