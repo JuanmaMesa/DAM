@@ -167,7 +167,7 @@ public class Application {
                     break;
                 case 3:
                     if (universitatActual.getpCampus() == 0) {
-                        System.out.println("La universitat encare no te cap Campus");
+                        System.out.println("La universitat " + universitatActual.getNomUniversitat() + " encara no te cap Campus");
                     }
                     for (int i = 0; i < universitatActual.getpCampus(); i++) {
                         universitatActual.getCampus()[i].showCampus();
@@ -208,12 +208,18 @@ public class Application {
                     indexSel = universitatActual.selectCampus(null);
 
                     if (indexSel != -1) {
+                        boolean found = false; // verificar si hay al menos una
+
                         for (int i = 0; i < universitatActual.getCampus()[indexSel].getpAulesEstandard(); i++) {
-                            for (int j = 0; j < universitatActual.getCampus()[indexSel].getpAulesEstandard(); j++)
-                                universitatActual.getCampus()[indexSel].getAulesEstandard()[j].showAulaEstandard();
+                            universitatActual.getCampus()[indexSel].getAulesEstandard()[i].showAulaEstandard();
+                            found = true;
+
+                        }
+                        if (!found) {
+                            System.out.println("El campus " + universitatActual.getCampus()[indexSel].getNomCampus() + " no te cap aula estandard");
                         }
                     } else {
-                        System.out.println("\nEl campus no té cap Aula estandàrd");
+                        System.out.println("\nEl campus que has posat no existeix");
                     }
                     break;
                 default:
@@ -249,9 +255,14 @@ public class Application {
                     indexSel = universitatActual.selectCampus(null);
 
                     if (indexSel != -1) {
+                        boolean found = false; // verificar si hay al menos una
+
                         for (int i = 0; i < universitatActual.getCampus()[indexSel].getpAulansInformatica(); i++) {
-                            for (int j = 0; j < universitatActual.getCampus()[indexSel].getpAulansInformatica(); j++)
-                                universitatActual.getCampus()[indexSel].getAulesInformatica()[j].showAulaInformatica();
+                            universitatActual.getCampus()[indexSel].getAulesInformatica()[i].showAulaInformatica();
+                            found = true;
+                        }
+                        if (!found) {
+                            System.out.println("El campus " + universitatActual.getCampus()[indexSel].getNomCampus() + " no te cap aula d'informàtica");
                         }
                     } else {
                         System.out.println("\nEl campus no té cap Aula d'informàtica");
@@ -290,9 +301,14 @@ public class Application {
                     indexSel = universitatActual.selectCampus(null);
 
                     if (indexSel != -1) {
+                        boolean found = false; // verificar si hay al menos una
+
                         for (int i = 0; i < universitatActual.getCampus()[indexSel].getpLaboratoris(); i++) {
-                            for (int j = 0; j < universitatActual.getCampus()[indexSel].getpLaboratoris(); j++)
-                                universitatActual.getCampus()[indexSel].getLaboratoris()[j].showLaboratori();
+                            universitatActual.getCampus()[indexSel].getLaboratoris()[i].showLaboratori();
+                            found = true;
+                        }
+                        if (!found) {
+                            System.out.println("El campus " + universitatActual.getCampus()[indexSel].getNomCampus() + " no te cap laboratori");
                         }
                     } else {
                         System.out.println("\nEl campus no té cap Laboratori");
@@ -304,7 +320,6 @@ public class Application {
             }
         } while (opcio != 0);
     }
-
 
     public static Integer selectUniversitat(Universitat Universitat) {
         String nom;
