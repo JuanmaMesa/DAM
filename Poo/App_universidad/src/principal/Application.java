@@ -181,25 +181,6 @@ public class Application {
         } while (opcio != 0);
     }
 
-
-    /*
-     * TODO
-     *
-     * Nom del mètode: menu Aules Estàndard
-     *
-     * Heu de desenvolupar el menuAulesEstandard amb les opcions que podeu veure.
-     * Nota: penseu que quan arribem aquí, l'atribut universitatActual no és null
-     *
-     * Opció 0. Sortir -->       Surt del menú i retorna al menú principal
-     * Opció 1. Alta -->         Crea Aula estàndard del campus actual afegint-lo a un Campus.
-     *                           Penseu que Universitat sap afegir Aules estàndard a una Campus seleccionat.
-     * Opció 2. Modificar -->    Permet modificar AulaEstàndard del campus actual. Penseu que tots els
-     *                           AulesEstandard d'un campus pertanyen a una Campus d'aquest campus i que
-     *                           Universitat sap modificar AulaEstàndard que pertany a una dels seu Campus.
-     * Opció 3. Llista AulesEstandard --> Imprimeix les dades de tots els AulesEstandard del campus actual.
-     *
-
-     */
     public static void menuAulesEstandard() {
 
         int opcio = 0;
@@ -222,7 +203,6 @@ public class Application {
                     break;
                 case 2:
                     universitatActual.updateAulaEstandardCampus();
-
                     break;
                 case 3:
                     indexSel = universitatActual.selectCampus(null);
@@ -236,67 +216,93 @@ public class Application {
                         System.out.println("\nEl campus no té cap Aula estandàrd");
                     }
                     break;
-
                 default:
                     System.out.println("\nS'ha de seleccionar una opció correcta del menú.");
                     break;
             }
-
         } while (opcio != 0);
     }
 
-
-    /*
-     * TODO
-     *
-     * Nom del mètode: menuAulesInformatica
-     *
-     * Heu de desenvolupar el menuAulesInformatica amb les opcions que podeu veure.
-     * Nota: penseu que quan arribem aquí, l'atribut universitatActual no és null
-     *
-     * Opció 0. Sortir -->       Surt del menú i retorna al menú principal
-     * Opció 1. Alta -->         Crea una AulaInformatica del campus actual afegint-la a un Campus.
-     *                           Penseu que Universitat sap afegir una AulaInformatica a un Campus seleccionat.
-     * Opció 2. Modificar -->    Permet modificar una AulaInformatica del campus actual. Penseu que totes les
-     *                           AulesInformatica d'un campus pertanyen a una Campus d'aquest Campus i que
-     *                           Universitat sap modificar una AulaInformatica que pertany a una de les seves Campus.
-     * Opció 3. Llista AulesInformatica --> Imprimeix les dades de tots/es AulesInformatica del campus actual.
-     * A més, heu de fer una estructura iterativa per tornar a mostrar el menú sempre que no es premi l'opció 0 de sortida
-     *
-     * Recomanacions:
-     * - estructura de control switch-case per bifurcar les opcions
-     * - si no s'ha introduït cap opció de les de la llista, s'ha de mostrar el missatge "S'ha de seleccionar una opció correcta del menú."
-     * - definiu una variable opcio de tipus enter
-     */
     public static void menuAulesInformatica() {
+        int opcio = 0;
+        int indexSel;
+        do {
+            System.out.println("\nMenú Aules Informàtiques: Selecciona una opció:");
+            System.out.println("\n0. Sortir");
+            System.out.println("\n1. Alta");
+            System.out.println("\n2. Modificar");
+            System.out.println("\n3. Llista aules d'informàtica");
+            System.out.println("\n");
 
+            opcio = Integer.parseInt(DADES.nextLine());
+
+            switch (opcio) {
+                case 0:
+                    break;
+                case 1:
+                    universitatActual.addAulaInformaticaCampus();
+                    break;
+                case 2:
+                    universitatActual.updateAulaInformaticaCampus();
+                    break;
+                case 3:
+                    indexSel = universitatActual.selectCampus(null);
+
+                    if (indexSel != -1) {
+                        for (int i = 0; i < universitatActual.getCampus()[indexSel].getpAulansInformatica(); i++) {
+                            for (int j = 0; j < universitatActual.getCampus()[indexSel].getpAulansInformatica(); j++)
+                                universitatActual.getCampus()[indexSel].getAulesInformatica()[j].showAulaInformatica();
+                        }
+                    } else {
+                        System.out.println("\nEl campus no té cap Aula d'informàtica");
+                    }
+                    break;
+                default:
+                    System.out.println("\nS'ha de seleccionar una opció correcta del menú.");
+                    break;
+            }
+        } while (opcio != 0);
     }
 
-    /*
-     * TODO
-     *
-     * Nom del mètode: menuLaboratoris
-     *
-     * Heu de desenvolupar el menuLaboratoris amb les opcions que podeu veure.
-     * Nota: penseu que quan arribem aquí, l'atribut universitatActual no és null
-     *
-     * Opció 0. Sortir -->       Surt del menú i retorna al menú principal
-     * Opció 1. Alta -->         Crea una Apartament del campus actual afegint-la a una Campus.
-     *                           Penseu que Universitat sap afegir un Apartament a una Campus seleccionat.
-     * Opció 2. Modificar -->    Permet modificar un Apartament del campus actual. Penseu que totes els
-     *                           Laboratoris d'un campus pertanyen a una Campus d'aquest Campus i que
-     *                           Universitat sap modificar una Apartament que pertany a una dels seus Campus.
-     * Opció 3. Llista Laboratoris --> Imprimeix les dades de tots els Laboratoris del campus actual.
-     *
-     * A més, heu de fer una estructura iterativa per tornar a mostrar el menú sempre que no es premi l'opció 0 de sortida
-     *
-     * Recomanacions:
-     * - estructura de control switch-case per bifurcar les opcions
-     * - si no s'ha introduït cap opció de les de la llista, s'ha de mostrar el missatge "S'ha de seleccionar una opció correcta del menú."
-     * - definiu una variable opcio de tipus enter
-     */
     public static void menuLaboratoris() {
+        int opcio = 0;
+        int indexSel;
+        do {
+            System.out.println("\nMenú Aules Laboratoris: Selecciona una opció:");
+            System.out.println("\n0. Sortir");
+            System.out.println("\n1. Alta");
+            System.out.println("\n2. Modificar");
+            System.out.println("\n3. Llista Laboratoris");
+            System.out.println("\n");
 
+            opcio = Integer.parseInt(DADES.nextLine());
+
+            switch (opcio) {
+                case 0:
+                    break;
+                case 1:
+                    universitatActual.addLaboratoriCampus();
+                    break;
+                case 2:
+                    universitatActual.updateLaboratoriCampus();
+                    break;
+                case 3:
+                    indexSel = universitatActual.selectCampus(null);
+
+                    if (indexSel != -1) {
+                        for (int i = 0; i < universitatActual.getCampus()[indexSel].getpLaboratoris(); i++) {
+                            for (int j = 0; j < universitatActual.getCampus()[indexSel].getpLaboratoris(); j++)
+                                universitatActual.getCampus()[indexSel].getLaboratoris()[j].showLaboratori();
+                        }
+                    } else {
+                        System.out.println("\nEl campus no té cap Laboratori");
+                    }
+                    break;
+                default:
+                    System.out.println("\nS'ha de seleccionar una opció correcta del menú.");
+                    break;
+            }
+        } while (opcio != 0);
     }
 
 
