@@ -137,30 +137,6 @@ public class Application {
         } while (opcio != 0);
     }
 
-    /*
-     * TODO
-     *
-     * Nom del mètode: menuCampus
-     *
-     * Heu de desenvolupar el menu Campus amb les opcions que podeu veure.
-     * Nota: penseu que quan arribem aquí, l'atribut universitatActual no és null.
-     *
-     * Opció 0. Sortir          --> Surt del menú i retorna al menú principal.
-     * Opció 1. Alta            --> Crea una Campus del campus actual. Noteu que Universitat sap crear Campus.
-     * Opció 2. Modificar       --> Permet modificar una Campus del campus actual.
-     * (per comprovar l'existència d'una campus tenim un mètode en la classe Universitat que ens ajuda).
-     * Opció 3. Llista Campus   --> Imprimeix les dades dels campus del campus actual.
-     *
-     * A més, heu de fer una estructura iterativa per tornar a mostrar el menú sempre que no es premi l'opció 0 de sortida.
-     *
-     * Recomanacions:
-     * - estructura de control switch-case per bifurcar les opcions.
-     * - si no s'ha introduït cap opció de les de la llista, s'ha de mostrar el missatge.
-     * "S'ha de seleccionar una opció correcta del menú."
-     * - definiu una variable opcio de tipus enter.
-     */
-
-
     public static void menuCampus() {
         int opcio = 0;
         int indexSel;
@@ -178,8 +154,7 @@ public class Application {
                 case 0:
                     break;
                 case 1:
-                   universitatActual.addCampus();
-
+                    universitatActual.addCampus();
                     break;
                 case 2:
                     indexSel = universitatActual.selectCampus(null);
@@ -191,9 +166,16 @@ public class Application {
                     }
                     break;
                 case 3:
-                    for (int i = 0; i < universitatActual.getpCampus(); i++){
+                    if (universitatActual.getpCampus() == 0) {
+                        System.out.println("La universitat encare no te cap Campus");
+                    }
+                    for (int i = 0; i < universitatActual.getpCampus(); i++) {
                         universitatActual.getCampus()[i].showCampus();
                     }
+                    break;
+                default:
+                    System.out.println("\nS'ha de seleccionar una opció correcta del menú.");
+                    break;
             }
 
         } while (opcio != 0);
@@ -216,16 +198,53 @@ public class Application {
      *                           Universitat sap modificar AulaEstàndard que pertany a una dels seu Campus.
      * Opció 3. Llista AulesEstandard --> Imprimeix les dades de tots els AulesEstandard del campus actual.
      *
-     * A més, heu de fer una estructura iterativa per tornar a mostrar el menú sempre que no es premi l'opció 0 de sortida
-     *
-     * Recomanacions:
-     * - estructura de control switch-case per bifurcar les opcions
-     * - si no s'ha introduït cap opció de les de la llista, s'ha de mostrar el missatge "S'ha de seleccionar una opció correcta del menú."
-     * - definiu una variable opcio de tipus enter
-     */
-public static void menuAulesEstandard(){
 
-}
+     */
+    public static void menuAulesEstandard() {
+
+        int opcio = 0;
+        int indexSel;
+        do {
+            System.out.println("\nMenú Aules Estàndard: Selecciona una opció:");
+            System.out.println("\n0. Sortir");
+            System.out.println("\n1. Alta");
+            System.out.println("\n2. Modificar");
+            System.out.println("\n3. Llista Aules Estàndard");
+            System.out.println("\n");
+
+            opcio = Integer.parseInt(DADES.nextLine());
+
+            switch (opcio) {
+                case 0:
+                    break;
+                case 1:
+                    universitatActual.addAulaEstandardCampus();
+                    break;
+                case 2:
+                    universitatActual.updateAulaEstandardCampus();
+
+                    break;
+                case 3:
+                    indexSel = universitatActual.selectCampus(null);
+
+                    if (indexSel != -1) {
+                        for (int i = 0; i < universitatActual.getCampus()[indexSel].getpAulesEstandard(); i++) {
+                            for (int j = 0; j < universitatActual.getCampus()[indexSel].getpAulesEstandard(); j++)
+                                universitatActual.getCampus()[indexSel].getAulesEstandard()[j].showAulaEstandard();
+                        }
+                    } else {
+                        System.out.println("\nEl campus no té cap Aula estandàrd");
+                    }
+                    break;
+
+                default:
+                    System.out.println("\nS'ha de seleccionar una opció correcta del menú.");
+                    break;
+            }
+
+        } while (opcio != 0);
+    }
+
 
     /*
      * TODO
@@ -249,9 +268,9 @@ public static void menuAulesEstandard(){
      * - si no s'ha introduït cap opció de les de la llista, s'ha de mostrar el missatge "S'ha de seleccionar una opció correcta del menú."
      * - definiu una variable opcio de tipus enter
      */
-public static void menuAulesInformatica(){
+    public static void menuAulesInformatica() {
 
-}
+    }
 
     /*
      * TODO
@@ -276,7 +295,7 @@ public static void menuAulesInformatica(){
      * - si no s'ha introduït cap opció de les de la llista, s'ha de mostrar el missatge "S'ha de seleccionar una opció correcta del menú."
      * - definiu una variable opcio de tipus enter
      */
-    public static void menuLaboratoris(){
+    public static void menuLaboratoris() {
 
     }
 
