@@ -11,8 +11,6 @@ import java.util.Scanner;
  * @author fgarin
  */
 public class AulaInformatica extends Aula {
-    private final static Scanner DADES = new Scanner(System.in);
-
     private double areaEnMetresQuadrats;
 
 
@@ -90,4 +88,33 @@ public class AulaInformatica extends Aula {
     public double costManteniment() {
         return (0.3 * getCostPerDia()) + (0.05 * getAreaEnMetresQuadrats());
     }
+
+    @Override
+    public void updateUnitatUniversitat() {
+        super.updateUnitatUniversitat();
+
+        System.out.println("\nÀrea en metres quadrats de l'aula d'informàtica: " + this.getAreaEnMetresQuadrats());
+        System.out.println("Entra el nou valor de l'àrea en metres quadrats de l'aula d'informàtica:");
+        areaEnMetresQuadrats = Double.parseDouble(DADES.nextLine());
+
+
+
+    }
+
+    @Override
+    public void showUnitatUniversitat() {
+        super.showUnitatUniversitat();
+        System.out.println("\nL'àrea en metres quadrats de l'aula: " + this.getAreaEnMetresQuadrats());
+        System.out.println("\nCost de manteniment: " + this.costManteniment() + " EUR");
+
+
+    }
+
+    @Override
+    protected String getNomAula() {
+        return "Aula d'informàtica";
+    }
 }
+
+
+

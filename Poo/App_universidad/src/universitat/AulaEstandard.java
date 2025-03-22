@@ -11,7 +11,6 @@ import java.util.Scanner;
  * @author fgarin
  */
 public class AulaEstandard extends Aula {
-    private final static Scanner DADES = new Scanner(System.in);
 
 
     public AulaEstandard(String codi, int numeroAula, double costPerDia) {
@@ -73,4 +72,17 @@ public class AulaEstandard extends Aula {
         return getCostPerDia() * 0.2;
 
     }
+    @Override
+    public void updateUnitatUniversitat() {
+        super.updateUnitatUniversitat();
+
+    }
+
+    @Override
+    public void showUnitatUniversitat() {
+        super.showUnitatUniversitat();
+        System.out.println("\nCost de manteniment: " + this.costManteniment() + " EUR");
+
+    }
+
 }

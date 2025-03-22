@@ -11,7 +11,6 @@ import java.util.Scanner;
  * @author fgarin
  */
 public class Laboratori extends Aula {
-    private final static Scanner DADES = new Scanner(System.in);
 
     private int capacitat;
 
@@ -92,4 +91,27 @@ public class Laboratori extends Aula {
         return (0.35 * getCostPerDia()) + (0.10 * getCapacitat());
     }
 
+    @Override
+    public void updateUnitatUniversitat() {
+        super.updateUnitatUniversitat();
+
+        System.out.println("\nCapacitat del Laboratori: " + this.getCapacitat());
+        System.out.println("Entra el nou valor de la capacitat:");
+        capacitat = Integer.parseInt(DADES.nextLine());
+
+    }
+
+    @Override
+    public void showUnitatUniversitat() {
+        super.showUnitatUniversitat();
+        System.out.println("\nCost de manteniment: " + this.costManteniment() + " EUR");
+
+    }
+
+    @Override
+    protected String getNomAula() {
+        return "Laboratori";
+    }
+
 }
+
