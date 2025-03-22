@@ -10,45 +10,17 @@ import java.util.Scanner;
 /**
  * @author fgarin
  */
-public class AulaInformatica {
+public class AulaInformatica extends Aula {
     private final static Scanner DADES = new Scanner(System.in);
 
-    private String codi;
-    private int numeroAula;
-    private double costPerDia;
     private double areaEnMetresQuadrats;
 
 
-    public AulaInformatica(String codi, int numeroAula, double cosPerDia, double areaEnMetresQuadrats) {
-        this.codi = codi;
-        this.numeroAula = numeroAula;
-        this.costPerDia = cosPerDia;
+    public AulaInformatica(String codi, int numeroAula, double costPerDia, double areaEnMetresQuadrats) {
+        super(codi, numeroAula, costPerDia);
         this.areaEnMetresQuadrats = areaEnMetresQuadrats;
     }
 
-    public String getCodi() {
-        return codi;
-    }
-
-    public void setCodi(String codi) {
-        this.codi = codi;
-    }
-
-    public int getNumeroAula() {
-        return numeroAula;
-    }
-
-    public void setNumeroAula(int numeroAula) {
-        this.numeroAula = numeroAula;
-    }
-
-    public double getCostPerDia() {
-        return costPerDia;
-    }
-
-    public void setCostPerDia(double costPerDia) {
-        this.costPerDia = costPerDia;
-    }
 
     public double getAreaEnMetresQuadrats() {
         return areaEnMetresQuadrats;
@@ -57,6 +29,7 @@ public class AulaInformatica {
     public void setAreaEnMetresQuadrats(double areaEnMetresQuadrats) {
         this.areaEnMetresQuadrats = areaEnMetresQuadrats;
     }
+
 
     public AulaInformatica addAulaInformatica() {
 

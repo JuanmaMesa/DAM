@@ -10,53 +10,27 @@ import java.util.Scanner;
 /**
  * @author fgarin
  */
-public class AulaEstandard {
+public class AulaEstandard extends Aula {
     private final static Scanner DADES = new Scanner(System.in);
-
-    private String codi;
-    private int numeroAula;
-    private double costPerDia;
 
 
     public AulaEstandard(String codi, int numeroAula, double costPerDia) {
-        this.codi = codi;
-        this.numeroAula = numeroAula;
-        this.costPerDia = costPerDia;
-    }
-
-    public String getCodi() {
-        return codi;
-    }
-
-    public void setCodi(String codi) {
-        this.codi = codi;
-    }
-
-    public int getNumeroAula() {
-        return numeroAula;
-    }
-
-    public void setNumeroAula(int numeroAula) {
-        this.numeroAula = numeroAula;
-    }
-
-    public double getCostPerDia() {
-        return costPerDia;
-    }
-
-    public void setCostPerDia(double costPerDia) {
-        this.costPerDia = costPerDia;
+        super(codi, numeroAula, costPerDia);
     }
 
     public AulaEstandard addAulaEstandard() {
+        String codi;
+        int numeroAula;
+        double costPerDia;
+
         System.out.println("Introdueix el codi de l'aula:");
-        String codi = DADES.nextLine();
+        codi = DADES.nextLine();
 
         System.out.println("Introdueix el número de l'aula:");
-        int numeroAula = DADES.nextInt();
+        numeroAula = DADES.nextInt();
 
         System.out.println("Introdueix el cost per dia:");
-        double costPerDia = DADES.nextDouble();
+        costPerDia = DADES.nextDouble();
 
         DADES.nextLine(); // limpieza buffer
 

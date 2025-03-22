@@ -10,44 +10,15 @@ import java.util.Scanner;
 /**
  * @author fgarin
  */
-public class Laboratori {
+public class Laboratori extends Aula {
     private final static Scanner DADES = new Scanner(System.in);
 
-    private String codi;
-    private int numeroLaboratori;
-    private double costPerDia;
     private int capacitat;
 
 
-    public Laboratori(String codi, int numeroLaboratori, double costPerDia, int capacitat) {
-        this.codi = codi;
-        this.numeroLaboratori = numeroLaboratori;
-        this.costPerDia = costPerDia;
+    public Laboratori(String codi, int numeroAula, double costPerDia, int capacitat) {
+        super(codi, numeroAula, costPerDia);
         this.capacitat = capacitat;
-    }
-
-    public String getCodi() {
-        return codi;
-    }
-
-    public void setCodi(String codi) {
-        this.codi = codi;
-    }
-
-    public int getNumeroLaboratori() {
-        return numeroLaboratori;
-    }
-
-    public void setNumeroLaboratori(int numeroLaboratori) {
-        this.numeroLaboratori = numeroLaboratori;
-    }
-
-    public double getCostPerDia() {
-        return costPerDia;
-    }
-
-    public void setCostPerDia(double costPerDia) {
-        this.costPerDia = costPerDia;
     }
 
     public int getCapacitat() {
@@ -57,6 +28,7 @@ public class Laboratori {
     public void setCapacitat(int capacitat) {
         this.capacitat = capacitat;
     }
+
 
     public Laboratori addLaboratori() {
         System.out.println("Introdueix el codi del Laboratori:");
@@ -79,7 +51,7 @@ public class Laboratori {
     public void updateLaboratori() {
         System.out.println("Dades actuals del laboratori:");
         System.out.println("Codi: " + getCodi());
-        System.out.println("Numero de l'aula del laboratori: " + getNumeroLaboratori());
+        System.out.println("Numero de l'aula del laboratori: " + getNumeroAula());
         System.out.println("Cost per dia: " + getCostPerDia());
         System.out.println("Capacitat: " + getCapacitat());
 
@@ -90,7 +62,7 @@ public class Laboratori {
         setCodi(DADES.nextLine());
 
         System.out.println("Nou numero del laboratori: ");
-        setNumeroLaboratori(DADES.nextInt());
+        setNumeroAula(DADES.nextInt());
 
         System.out.println("Nou cost per dia: ");
         setCostPerDia(DADES.nextDouble());
@@ -107,7 +79,7 @@ public class Laboratori {
 
         System.out.println("\n===== Informació del laboratori =====");
         System.out.println("Codi: " + getCodi() + "\n" +
-                "Num. laboratori: " + getNumeroLaboratori() + "\n" +
+                "Num. laboratori: " + getNumeroAula() + "\n" +
                 "Cost per dia: " + getCostPerDia() + " €\n" +
                 "Capacitat: " + getCapacitat()
         );
